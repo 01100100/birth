@@ -30,6 +30,11 @@ git config --global core.editor "code --wait"
 echo "Installing vs code..."
 snap install code --classic
 
+echo "Installing zsh..."
+sudo apt install zsh 
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+
 echo "Installing the linux-surface kernel and its dependencies..."
 sudo apt install linux-image-surface linux-headers-surface iptsd libwacom-surface
 
