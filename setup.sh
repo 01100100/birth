@@ -1,7 +1,10 @@
-GIT_USER_NAME="davidwhittingham94@gmail.com"
+GIT_EMAIL="davidwhittingham94@gmail.com"
+GIT_USER_NAME = "01001100"
+
+
 
 # Create ssh key
-ssh-keygen -t ed25519 -C "${GIT_USER_NAME}" -q -N "" -f ~/.ssh/id_ed25519
+ssh-keygen -t ed25519 -C "${GIT_EMAIL}" -q -N "" -f ~/.ssh/id_ed25519
 echo "Go to https://github.com/settings/ssh/new and enter the created ssh key."
 echo "################################################################################"
 cat /home/dave/.ssh/id_ed25519.pub
@@ -16,6 +19,16 @@ echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" |
     sudo tee /etc/apt/sources.list.d/linux-surface.list
 # Update apt package manager.
 sudo apt update
+
+echo "Installing git..."
+sudo apt install git
+
+git config --global user.name $GIT_USER_NAME
+git config --global user.email $GIT_EMAIL
+git config --global core.editor "code --wait"
+
+echo "Installing vs code..."
+snap install code --classic
 
 echo "Installing the linux-surface kernel and its dependencies..."
 sudo apt install linux-image-surface linux-headers-surface iptsd libwacom-surface
