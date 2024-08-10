@@ -20,6 +20,7 @@ echo "Installing git..."
 sudo apt install git
 git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_EMAIL
+git config --global init.defaultBranch main
 git config --global push.autoSetupRemote "true"
 git config --global core.editor "code --wait"
 
